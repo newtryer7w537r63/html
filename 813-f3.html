@@ -823,7 +823,7 @@
       const showRollbackMessage = function (message) {
         let messages = "";
         rollbackMessages.push(message);
-        rollbackMessages.forEach(m => messages += "<p>" + m + "</p>");
+        rollbackMessages.forEach(m => messages += "<p>" + m + "<\/p>");
 
         messagesElement.innerHTML = messages;
         messageContainerElement.style.display = 'block';
@@ -857,10 +857,6 @@
             if (arguments.length > 1)
               text = Array.prototype.slice.call(arguments).join(" ");
             // These replacements are necessary if you render to raw HTML
-            //text = text.replace(/&/g, "&amp;");
-            //text = text.replace(/</g, "&lt;");
-            //text = text.replace(/>/g, "&gt;");
-            //text = text.replace('\n', '<br>', 'g');
             console.log(text);
             if (text === "Entering main loop.") {
               // It seems that this text ensures game is loaded.
@@ -1690,11 +1686,11 @@
           '.config-row > textarea { flex: 1; }' +
           '.config-row-label { font-size: 12px; font-weight: 600; }' +
           'button { padding: 8px 16px; border-radius: 4px; background-color: unset; border-color: rgb(199, 159, 234); color: rgb(199, 159, 234); }' +
-          '</style>';
-        let configHTML = '<html><head><title></title>' + configStyle + '</head><body>' +
-          '<div class="wallpaper-header"><h1>Live Wallpaper Configurator</h1><button id="wallpaper-reset-parameters">Reset parameters</button></div>' +
-          '<div class="wallpaper-config" id="wallpaper-config"></div>' +
-          '</body></html>'
+          '<\/style>';
+        let configHTML = '<html><head><title><\/title>' + configStyle + '<\/head><body>' +
+          '<div class="wallpaper-header"><h1>Live Wallpaper Configurator<\/h1><button id="wallpaper-reset-parameters">Reset parameters<\/button><\/div>' +
+          '<div class="wallpaper-config" id="wallpaper-config"><\/div>' +
+          '<\/body><\/html>'
 
         const wallpaperConfigDocument = document.getElementById("wallpaper-config-iframe").contentDocument;
         wallpaperConfigDocument.open();
@@ -1816,9 +1812,9 @@
 
         const labelElem = document.createElement("label");
         labelElem.htmlFor = prefixId + definition.name;
-        labelElem.innerHTML = "<span class='config-row-label'>" + (definition.label || definition.name) + "</span>";
+        labelElem.innerHTML = "<span class='config-row-label'>" + (definition.label || definition.name) + "<\/span>";
         if (definition.description) {
-          labelElem.innerHTML += "<p>" + definition.description + "</p>";
+          labelElem.innerHTML += "<p>" + definition.description + "<\/p>";
         }
         controlElem.appendChild(labelElem);
 
